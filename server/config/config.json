@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "23102731",
+    "database": "carolinkdb",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "password",
+    "database": "carolinkdb",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "password",
+    "database": "carolinkdb",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
