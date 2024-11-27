@@ -351,3 +351,58 @@ footer p {
     margin-left: 10px;
   }
 }
+
+/* Thumbs Up Icon Button */
+.likeBttn, .unlikeBttn {
+  cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+  color: #7f8c8d; /* Default gray color when not liked */
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth transition for color and scale change */
+  font-size: 1.5em; /* Set the size of the icon */
+}
+
+.likeBttn:hover, .unlikeBttn:hover {
+  color: #28a745; /* Lighter green on hover */
+}
+
+/* Active State (Liked) */
+.unlikeBttn {
+  color: #28a745; /* Green color when liked */
+}
+
+/* Optional: Thumbs-up animation */
+.likeBttn.active, .unlikeBttn.active {
+  transform: scale(1.2); /* Slightly grow the icon when active */
+  transition: transform 0.2s ease;
+}
+
+/* Inactive State (Unliked) */
+.likeBttn {
+  color: #7f8c8d; /* Default gray color when unliked */
+}
+
+/* Color change when liked */
+.likeBttn.active {
+  color: #28a745; /* Green color when liked */
+}
+
+
+/* Add styles for the like button */
+.post .footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.post .footer .MuiSvgIcon-root {
+  cursor: pointer;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.post .footer .liked {
+  color: blue; /* Blue color when liked */
+}
+
+.post .footer .unliked {
+  color: gray; /* Gray color when unliked */
+}
