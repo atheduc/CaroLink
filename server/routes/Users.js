@@ -48,4 +48,28 @@ router.get("/auth", validateToken, (req, res) => {
   res.json(req.user); // Respond with the authenticated user data
 });
 
+
+
+
+// Route to get basic info of a user by ID
+router.get("/basicinfo/:id", async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const basicInfo = await Users.findByPk(id, {
+      attributes: { exclude: ["password"] }, // Exclude sensitive info
+    });
+
+    if (!basicInfo) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    res.json(basicInfo);
+  } catch (error) {
+    console.error("Error fetching user:", error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
+
+
 module.exports = router;

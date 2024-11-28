@@ -302,9 +302,101 @@
 // export default Home;
 
 
+// import React, { useEffect, useState, useContext } from "react";
+// import axios from "axios";
+// import { useNavigate } from "react-router-dom";
+// import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+// import { AuthContext } from "../helpers/AuthContext";
+
+// function Home() {
+//   const [listOfPosts, setListOfPosts] = useState([]);
+//   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+//   const { authState } = useContext(AuthContext);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     if (!localStorage.getItem("accessToken")) {
+//       navigate("/login"); // Corrected here
+//     } else {
+//       const token = localStorage.getItem("accessToken");
+//       setIsLoggedIn(!!token);
+
+//       axios.get("http://localhost:3001/posts").then((response) => {
+//         setListOfPosts(response.data);
+//       });
+//     }
+//   }, [navigate]); // Include navigate in dependency array
+
+//   const likeAPost = (postId) => {
+//     if (!isLoggedIn) {
+//       alert("You must be logged in to like a post!");
+//       navigate("/login"); // Corrected here
+//       return;
+//     }
+
+//     axios
+//       .post(
+//         "http://localhost:3001/likes",
+//         { PostId: postId },
+//         { headers: { accessToken: localStorage.getItem("accessToken") } }
+//       )
+//       .then((response) => {
+//         setListOfPosts(
+//           listOfPosts.map((post) => {
+//             if (post.id === postId) {
+//               if (response.data.liked) {
+//                 return { ...post, Likes: [...post.Likes, 0] };
+//               } else {
+//                 const likesArray = post.Likes;
+//                 likesArray.pop();
+//                 return { ...post, Likes: likesArray };
+//               }
+//             } else {
+//               return post;
+//             }
+//           })
+//         );
+//       });
+//   };
+
+//   return (
+//     <div>
+//       {listOfPosts.map((value, key) => {
+//         return (
+//           <div className="post" key={key}>
+//             <div className="title">{value.title}</div>
+//             <div
+//               className="body"
+//               onClick={() => {
+//                 navigate(`/post/${value.id}`); // Corrected here
+//               }}
+//             >
+//               {value.postText}
+//             </div>
+//             <div className="footer">
+//               {value.username}
+//               <ThumbUpIcon
+//                 onClick={() => {
+//                   likeAPost(value.id);
+//                 }}
+//               />
+//               <label>{value.Likes?.length ?? 0} Likes</label>
+//             </div>
+//           </div>
+//         );
+//       })}
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+
+
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";  // Import Link from react-router-dom
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { AuthContext } from "../helpers/AuthContext";
 
@@ -375,7 +467,10 @@ function Home() {
               {value.postText}
             </div>
             <div className="footer">
-              {value.username}
+              <div className="username">
+                {/* Use Link component here instead of <link> */}
+                <Link to={`/profile/${value.UserId}`}>{value.username}</Link>
+              </div>
               <ThumbUpIcon
                 onClick={() => {
                   likeAPost(value.id);
@@ -391,4 +486,5 @@ function Home() {
 }
 
 export default Home;
+
 
