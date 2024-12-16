@@ -1,14 +1,14 @@
 /* General Layout */
 .loginContainer, .registrationContainer {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f9fafc; /* Light background color */
+    min-height: 100vh;/* Light background color */
+    margin-top: 100px;
+    margin-left: 400px;
+    border-radius: 30px;
 }
 
 .loginForm, .registrationForm {
-    background-color: white;
+    background-color: rgb(249, 255, 252);
     padding: 40px 50px; /* Adjusted padding for balanced form */
     border-radius: 12px; /* Slightly rounder corners */
     box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1); /* Larger shadow for emphasis */
