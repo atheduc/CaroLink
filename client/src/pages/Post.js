@@ -89,7 +89,7 @@ function Post() {
                     .delete(`http://localhost:3001/posts/${id}`, {
                       headers: { accessToken: localStorage.getItem("accessToken") },
                     })
-                    .then(() => navigate("/"));
+                    .then(() => navigate("/legitHome/Post"));
                 }}
               >
                 Delete Post

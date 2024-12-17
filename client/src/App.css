@@ -848,3 +848,139 @@ label {
 .noPostsText:hover {
   color: #555;
 }
+
+/* Create Post Page Container */
+.createPostPage {
+  background-color: #f9fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Form Container Styling */
+.formContainer {
+  background-color: white;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-in-out;
+  width: 100%;
+}
+
+.formContainer h2 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.formContainer label {
+  font-size: 1.1rem;
+  color: #34495e;
+  margin-bottom: 5px;
+  display: block;
+  font-weight: 600;
+}
+
+.formContainer input,
+.formContainer textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fafafa;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formContainer input:focus,
+.formContainer textarea:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+.formContainer textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.formContainer button {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-top: 20px;
+}
+
+.formContainer button:hover {
+  background-color: #218838;
+  transform: scale(1.02);
+}
+
+/* Error Messages Styling */
+span {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+  font-weight: bold;
+}
+
+/* Form Footer Styling */
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.form-footer a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Animation for Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .formContainer {
+    padding: 20px;
+  }
+
+  .formContainer h2 {
+    font-size: 1.6rem;
+  }
+
+  .formContainer button {
+    font-size: 1rem;
+  }
+
+  .formContainer input,
+  .formContainer textarea {
+    font-size: 0.95rem;
+  }
+}

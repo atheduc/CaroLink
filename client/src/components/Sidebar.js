@@ -9,8 +9,8 @@ function Sidebar() {
   return (
     <div className="sidebar">
       <div class = "margin">
-      <Link to="/">🏡  Home</Link></div>
-      <div class = "margin">{authState.status && <Link to="/createpost">📢 Create A Post</Link>}
+      <Link to="/legitHome/home">🏡  Home</Link></div>
+      <div class = "margin">{authState.status && <Link to="/legitHome/createpost">📢 Create A Post</Link>}
       </div>
       {!authState.status && (
         <>

@@ -15,7 +15,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header-left">
-        <h1 className="logo" onClick={() => navigate("/")}>
+        <h1 className="logo" onClick={() => navigate("/legitHome/home")}>
           CaroLink
         </h1>
       </div>
@@ -25,7 +25,7 @@ function Header() {
           <>
             <span
               className="username"
-              onClick={() => navigate(`/profile/${authState.id}`)}
+              onClick={() => navigate(`/legitHome/profile/${authState.id}`)}
               style={{ cursor: "pointer", textDecoration: "underline" }}
             >
               {authState.username}

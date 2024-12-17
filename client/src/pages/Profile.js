@@ -59,7 +59,7 @@ function Profile() {
           <h1 className="profileUsername">{username}'s Profile</h1>
           {authState.username === username && (
             <button
-              onClick={() => navigate("/changepassword")}
+              onClick={() => navigate("/legitHome/changepassword")}
               className="changePasswordBtn"
             >
               Change My Password

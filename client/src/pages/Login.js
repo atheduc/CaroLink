@@ -32,7 +32,7 @@ function Login() {
           });
 
           // Redirect to home page after login
-          navigate("/");
+          navigate("/legitHome/home");
         }
       })
       .catch((err) => {
