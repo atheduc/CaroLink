@@ -102,6 +102,7 @@ import PageNotFound from "./pages/PageNotFound";
 import Profile from "./pages/Profile";
 import ChangePassword from "./pages/ChangePassword";
 import LoginRegistration from "./pages/LoginRegistration";
+import Welcome from './components/Welcome';
 
 // Importing Components
 import Sidebar from "./components/Sidebar";
@@ -155,7 +156,8 @@ function App() {
             {/* Main content area */}
             <div className="content">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Welcome/>} />
+                <Route path="Home" element={<Home />} />
                 <Route path="/createpost" element={<CreatePost />} />
                 <Route path="/post/:id" element={<Post />} />
                 <Route path="/registration" element={<Registration />} />
