@@ -12,7 +12,7 @@ const Hero = ({heroData,setHeroCount,heroCount,setPlayStatus,playStatus}) => {
         <p>{heroData.text2}</p>
       </div>
       <div className="hero-explore">
-        <p><Link to = "/Login" className='hero-register'>Register</Link></p>
+        <p><Link to = "/Registration" className='hero-register'>Register</Link></p>
         <img src={arrow_btn} alt="" />
       </div>
       <div className="hero-dot-play">

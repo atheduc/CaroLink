@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "root",
-    "password": "cisco",
-    "database": "paulo",
+    "username": "ken",
+    "password": "23100917",
+    "database": "deploy",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "cisco",
-    "database": "paulo",
+    "username": "ken",
+    "password": "23100917",
+    "database": "deploy",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "cisco",
-    "database": "paulo",
+    "username": "ken",
+    "password": "23100917",
+    "database": "deploy",
     "host": "localhost",
     "dialect": "mysql"
   }
