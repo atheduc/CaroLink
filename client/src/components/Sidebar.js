@@ -8,7 +8,7 @@ function Sidebar() {
 
   return (
     <div className="sidebar">
-      <Link to="/">Home</Link>
+      <Link to="/LegitHome">Home</Link>
       {authState.status && <Link to="/createpost">Create A Post</Link>}
       {!authState.status && (
         <>

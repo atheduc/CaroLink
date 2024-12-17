@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthContext } from "./helpers/AuthContext";
+import { Routes, Route } from "react-router-dom";
+import { AuthContext } from "../helpers/AuthContext";
 import axios from "axios";
 
 // Importing Pages
-import Home from "./pages/Home";
-import CreatePost from "./pages/CreatePost";
-import Post from "./pages/Post";
-import Registration from "./pages/Registration";
-import Login from "./pages/Login";
-import PageNotFound from "./pages/PageNotFound";
-import Profile from "./pages/Profile";
-import ChangePassword from "./pages/ChangePassword";
-import LoginRegistration from "./pages/LoginRegistration";
-import Welcome from './components/Welcome';
+import Home from "../pages/Home";
+import CreatePost from "../pages/CreatePost";
+import Post from "../pages/Post";
+import Registration from "../pages/Registration";
+import Login from "../pages/Login";
+import PageNotFound from "../pages/PageNotFound";
+import Profile from "../pages/Profile";
+import ChangePassword from "../pages/ChangePassword";
+import LoginRegistration from "../pages/LoginRegistration";
 
 // Importing Components
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
 
-function legitHome() {
+function LegitHome() {
   const [authState, setAuthState] = useState({
     username: "",
     id: 0,
@@ -55,34 +54,32 @@ function legitHome() {
 
   return (
     <AuthContext.Provider value={{ authState, setAuthState }}>
-      <Router>
-        <div className="app">
-          {/* Header is fixed at the top */}
-          <Header />
-          
-          {/* Main layout for Sidebar and Content */}
-          <div className="main-layout">
-            <Sidebar />
-            
-            {/* Main content area */}
-            <div className="content">
-              <Routes>
-                <Route path="/Home" element={<Home />} />
-                <Route path="/createpost" element={<CreatePost />} />
-                <Route path="/post/:id" element={<Post />} />
-                <Route path="/registration" element={<Registration />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/profile/:id" element={<Profile />} />
-                <Route path="/changepassword" element={<ChangePassword />} />
-                <Route path="*" element={<PageNotFound />} />
-                <Route path="/LoginRegistration" element={<LoginRegistration />} />
-              </Routes>
-            </div>
+      <div className="app">
+        {/* Header is fixed at the top */}
+        <Header />
+
+        {/* Main layout for Sidebar and Content */}
+        <div className="main-layout">
+          <Sidebar />
+
+          {/* Main content area */}
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/createpost" element={<CreatePost />} />
+              <Route path="/post/:id" element={<Post />} />
+              <Route path="/registration" element={<Registration />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              <Route path="/changepassword" element={<ChangePassword />} />
+              <Route path="*" element={<PageNotFound />} />
+              <Route path="/LoginRegistration" element={<LoginRegistration />} />
+            </Routes>
           </div>
         </div>
-      </Router>
+      </div>
     </AuthContext.Provider>
   );
 }
 
-export default legitHome;
+export default LegitHome;

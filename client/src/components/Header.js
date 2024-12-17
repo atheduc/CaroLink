@@ -15,7 +15,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header-left">
-        <h1 className="logo" onClick={() => navigate("/")}>
+        <h1 className="logo" onClick={() => navigate("/LegitHome")}>
           CaroLink
         </h1>
       </div>

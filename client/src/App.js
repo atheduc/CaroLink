@@ -103,6 +103,7 @@ import ChangePassword from "./pages/ChangePassword";
 import LoginRegistration from "./pages/LoginRegistration";
 import Welcome from './components/Welcome';
 import Home from './pages/Home';
+import LegitHome from "./pages/LegitHome";
 
 // Importing Components
 import Sidebar from "./components/Sidebar";
@@ -116,7 +117,7 @@ function App() {
         <Route path="/" element={<Welcome/>} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/legitHome" element={<legitHome/>} />
+        <Route path="/LegitHome" element={<LegitHome/>} />
       </Routes>
     </Router>
   )

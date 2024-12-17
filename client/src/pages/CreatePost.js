@@ -100,6 +100,7 @@ function CreatePost() {
 
     
     return (
+      
       <div className="createPostPage">
         <Formik
           initialValues={initialValues}
