@@ -1,0 +1,214 @@
+/* General container setup */
+.login-register-container {
+    font-family: 'Poppins', sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Main container for the forms */
+.login-register-container .content {
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    max-width: 1000px;
+    height: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adjust panels' position dynamically based on active state */
+.login-register-container .content .col-md-6 {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    transition: transform 0.6s ease-in-out;
+}
+
+.login-register-container .content.active .col-md-6:first-child {
+    transform: translateX(-100%);
+}
+
+.login-register-container .content.active .col-md-6:last-child {
+    transform: translateX(100%);
+}
+
+/* Left Box (Register) */
+.login-register-container .col-md-6:first-child {
+    background-color: #f9f9f9;
+    border-right: 1px solid #e0e0e0;
+}
+
+.login-register-container .col-md-6:first-child h1 {
+    color: #27613d;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Right Box (Login) */
+.login-register-container .col-md-6:last-child {
+    background-color: #fff;
+}
+
+.login-register-container .col-md-6:last-child h1 {
+    font-size: 28px;
+    color: #27613d;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.login-register-container .input-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-register-container .input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-register-container .input-group input:focus {
+    border-color: #27613d;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(39, 97, 61, 0.2);
+}
+
+/* Buttons */
+.login-register-container .btn {
+    background-color: #27613d;
+    color: #fff;
+    padding: 12px 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.login-register-container .btn:hover {
+    background-color: #224c2d;
+}
+
+/* Switch Panels */
+.login-register-container .switch-content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: #27613d;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s ease-in-out;
+    z-index: 2;
+}
+
+.login-register-container .content.active .switch-content {
+    transform: translateX(-100%);
+}
+
+.login-register-container .switch-content button {
+    background-color: #fff;
+    color: #27613d;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 20px;
+}
+
+.login-register-container .switch-content button:hover {
+    background-color: #27613d;
+    color: #fff;
+}
+
+/* Switch Background Panels */
+.login-register-container .switch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    z-index: 1;
+}
+
+.login-register-container .content.active .switch {
+    transform: translateX(-50%);
+}
+
+.login-register-container .switch-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.login-register-container .switch-panel h1 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.login-register-container .switch-panel p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .login-register-container .content {
+        width: 90%;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .login-register-container .switch {
+        flex-direction: column;
+        height: 50%;
+    }
+
+    .login-register-container .switch-content {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .login-register-container .switch-content button {
+        width: 80%;
+    }
+
+    .login-register-container .switch-panel {
+        width: 100%;
+        padding: 20px;
+    }
+}

@@ -1,0 +1,152 @@
+/* General Layout */
+.loginContainer, .registrationContainer {
+    align-items: center;
+    min-height: 100vh;/* Light background color */
+    margin-top: 100px;
+    margin-left: 400px;
+    border-radius: 30px;
+}
+
+.loginForm, .registrationForm {
+    background-color: rgb(249, 255, 252);
+    padding: 40px 50px; /* Adjusted padding for balanced form */
+    border-radius: 12px; /* Slightly rounder corners */
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1); /* Larger shadow for emphasis */
+    width: 100%;
+    max-width: 600px; /* Adjusted max-width for better form proportions */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Title of the Forms */
+.loginForm h2, .registrationForm h2 {
+    text-align: center;
+    color: #2d3748;
+    margin-bottom: 25px; /* More space below the title */
+    font-size: 2rem; /* Larger title */
+    font-weight: 600;
+}
+
+/* Form Input Fields */
+.loginForm label, .registrationForm label {
+    font-size: 1.1rem; /* Slightly larger label */
+    color: #34495e;
+    margin-bottom: 8px;
+    font-weight: 600;
+    display: block;
+}
+
+.loginForm input, .registrationForm input {
+    width: 100%;
+    padding: 14px; /* Larger padding for input fields */
+    margin-bottom: 20px; /* Increased space between inputs */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1rem; /* Larger font for inputs */
+    background-color: #fafafa;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.loginForm input:focus, .registrationForm input:focus {
+    border-color: #28a745; /* Teal focus border */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); /* Slightly larger shadow */
+}
+
+/* Error Message Styling */
+.loginForm .error, .registrationForm .error {
+    color: #e53e3e;
+    font-size: 1rem;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Buttons */
+.loginForm button, .registrationForm button {
+    width: 100%;
+    padding: 14px; /* Adjusted padding for better balance */
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem; /* Adjusted font size */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.loginForm button:hover, .registrationForm button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Register Link Styling */
+.registerLink {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1rem; /* Adjusted font size */
+    color: #28a745; /* Green color for the link */
+    cursor: pointer;
+}
+
+.registerLink:hover {
+    text-decoration: underline;
+    color: #218838; /* Darker green on hover */
+}
+
+.registerLink span {
+    font-weight: bold;
+    color: #28a745; /* Green color for the link text */
+}
+
+.registerLink span:hover {
+    color: #218838; /* Darker green on hover */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .loginForm, .registrationForm {
+        padding: 30px 40px; /* Reduced padding on smaller screens */
+        max-width: 100%; /* Full width on small screens */
+    }
+
+    .loginForm h2, .registrationForm h2 {
+        font-size: 1.8rem; /* Smaller title for small screens */
+    }
+
+    .loginForm input, .registrationForm input {
+        font-size: 1.1rem; /* Larger font on mobile */
+    }
+
+    .loginForm button, .registrationForm button {
+        font-size: 1.2rem;
+    }
+
+    .registerLink {
+        font-size: 1.1rem; /* Larger font size for register link */
+    }
+}
+
+/* Animation for Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Success Message Styling */
+.successMessage {
+    color: #28a745; /* Green color for success */
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  

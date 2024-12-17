@@ -1,0 +1,480 @@
+/* General Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Updated font for modern look */
+  background-color: #e9ebed; /* Light gray background */
+  color: #13714c; /* Deep green text color */
+  line-height: 1.6;
+}
+
+/* App Layout */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Header Styling */
+.header {
+  display: flex;
+  height: 150px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #13714c; /* Deep green header */
+  padding: 10px 20px;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.logo {
+  display: flex;
+  margin-left: 50px;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: #13714c; /* Deep green logo background */
+}
+
+.logo-image {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #13714c;
+}
+
+.logout-section {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-section span {
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.logout-section span:hover {
+  color: #3ab67d; /* Highlight green for hover */
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  object-fit: cover;
+}
+
+.header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+}
+
+.header .logo:hover {
+  text-decoration: underline;
+}
+
+.header .header-middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header .header-middle input {
+  width: 60%;
+  padding: 10px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.header .header-middle input:focus {
+  border-color: #3ab67d; /* Vibrant green for focus */
+  box-shadow: 0 0 8px #3ab67d;
+}
+
+.header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header .username {
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 50px;
+}
+
+.header .username:hover {
+  text-decoration: none;
+}
+
+.header .logout-button {
+  background-color: #e9ebed; /* Light gray background */
+  color: #13714c; /* Deep green text */
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-left: 50px;
+}
+
+.header .logout-button:hover {
+  background-color: #3ab67d; /* Highlight green on hover */
+  color: white;
+}
+
+/* Layout with Sidebar and Main Content */
+.main-layout {
+  display: flex;
+  flex: 1; /* Offset for the fixed header */
+  overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  border-top-right-radius: 100px;
+  border-top-right-radius: 100px;
+  width: 300px;
+  border-color: black;
+  background-color: white; /* Light green sidebar */
+  height: calc(100vh - 70px); /* Fill the remaining space below the header */
+  padding: 20px;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1); /* Larger shadow for emphasis */
+  overflow-y: auto;
+  transition: width 0.3s;
+  margin-top: 40px;
+}
+
+.sidebar a {
+  display: block;
+  margin: 15px 0;
+  text-decoration: none;
+  color: #13714c; /* Deep green text for sidebar links */
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #13714c; /* Highlight green on hover */
+  color: white;
+  border-top-right-radius: 100px;
+  border-top-right-radius: 100px;
+}
+
+/* Main Content Styling */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #e9ebed; /* Light gray background for content */
+  overflow-y: auto; /* Allow scrolling for large content */
+}
+
+/* Post Styling */
+.post {
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-color: #13714c;    /* Blue border on focus */
+  
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 10px 90px 15px rgba(0, 0, 0, 0.15);
+  border-color: #13714c;    /* Blue border on focus */
+  box-shadow: 50px 50px 50px rgba(0, 123, 255, 0.3); 
+}
+
+/* Post Title */
+.post .title {
+  font-size: 1.8rem; /* Increase font size */
+  font-weight: 700; /* Make it bold */
+  color: #13714c; /* Deep green color for title */
+  margin-bottom: 15px; /* Increase space between title and content */
+  text-transform: uppercase; /* Make the title uppercase for emphasis */
+  letter-spacing: 1px; /* Slightly increase spacing between letters */
+  position: relative; /* Allows us to position the underline */
+  display: inline-block; /* Make it behave like a block element but inline */
+}
+
+/* Post Body */
+.post .body {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  
+}
+
+/* Footer Section */
+.post .footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align items to the right */
+  font-size: 0.9rem;
+  color: #718096;
+  margin-top: 15px;
+  gap: 30px; /* Space between username and like button */
+  
+}
+
+/* Like Section */
+.post .footer .like {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #13714c; /* Deep green color for like text */
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  
+}
+
+/* Hover effects for Like button */
+.post .footer .like:hover {
+  background-color: #13714c; /* Highlight green for hover */
+  color: white;
+}
+
+/* Username Section */
+.post .footer .username {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #13714c;
+  background-color: #eef3f7;
+  padding: 4px 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+/* Hover effects for Username */
+.post .footer .username:hover {
+  background-color: #3ab67d; /* Highlight green for hover */
+  color: white;
+}
+
+/* Comment Section */
+.post .footer .comment {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #13714c;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+.post .footer .comment:hover {
+  background-color: #13714c; /* Highlight green for hover */
+  color: white;
+}
+
+.post .footer .comment i {
+  font-size: 1.1rem;
+  color: inherit;
+  margin-left: 5px;
+}
+
+/* Comment Section Styles */
+
+/* Container for adding a new comment */
+.addCommentContainer {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.addCommentContainer input {
+  width: 75%;
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.addCommentContainer input:focus {
+  border-color: #3ab67d; /* Focus border color */
+}
+
+.addCommentContainer button {
+  padding: 12px 25px;
+  background-color: #13714c; /* Vibrant green button */
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addCommentContainer button:hover {
+  background-color: #13714c; /* Dark green on hover */
+}
+
+
+/* Style for the search container */
+.search-container {
+  display: flex;
+  justify-content: center;  /* Centers the input horizontally */
+  margin: 20px 0;           /* Adds some space around the search input */
+  position: relative;/* Blue glow on focus */       /* Allows for positioning inside the container */
+}
+
+/* Style for the search input field */
+.search-input {
+  width: 100%;              /* Makes the input take full width of its container */
+  max-width: 600px;         /* Limits the width of the search input */
+  padding: 12px 20px;       /* Adds padding for better touch and feel */
+  border-radius: 25px;      /* Round the corners for a more modern look */
+  border: 1px solid #ddd;   /* Light gray border */
+  font-size: 16px;          /* Sets font size */
+  outline: none;            /* Removes the default outline */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a soft shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition on focus */
+}
+
+/* Focus effect on the search input */
+.search-input:focus {
+  border-color: #f5fd07;    /* Blue border on focus */
+  box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3); /* Blue glow on focus */
+}
+
+/* Placeholder text style */
+.search-input::placeholder {
+  color: #888;              /* Lighter gray for the placeholder */
+  font-style: italic;       /* Italicize the placeholder text */
+  font-weight: 300;         /* Lighter font weight for the placeholder */
+}
+
+/* Optional: Add a clear button style */
+.search-input::after {
+  content: '✖';             /* A simple "X" for clear button */
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  cursor: pointer;
+  font-size: 18px;
+  visibility: hidden;       /* Hidden by default */
+}
+
+.search-input:focus::after {
+  visibility: visible;      /* Show "X" button when input is focused */
+}
+
+/* Style for the container of filtered posts */
+.post {
+  padding: 20px;
+  border-bottom: 1px solid #f1f1f1;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin: 10px 0;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for individual posts */
+.post:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling for posts */
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Styling for the post body */
+.body {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* Footer styling */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Username styling */
+.username {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #f5fd07;
+}
+
+/* Styling for the thumbs up icon */
+.MuiSvgIcon-root {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #007BFF;
+}
+
+.MuiSvgIcon-root:hover {
+  color: #006bdddd;
+}
+
+/* Label for Likes count */
+label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
