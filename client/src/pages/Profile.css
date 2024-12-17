@@ -1,0 +1,136 @@
+/* Main container */
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Profile header */
+  .profileHeader {
+    background-color: whitesmoke;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .profileDetails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .profileUsername {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .changePasswordBtn {
+    background-color: white;
+    color: darkgreen;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .changePasswordBtn:hover {
+    background-color: #e6e6e6;
+  }
+  
+  /* Section title */
+  .sectionTitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Posts grid */
+  .postsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .postsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .postCard {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .postCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .postBody {
+    padding: 15px;
+    cursor: pointer;
+  }
+  
+  .postTitle {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .postText {
+    margin-top: 5px;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .postFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }
+  
+  .likeSection {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .likeIcon {
+    cursor: pointer;
+    color: #007bff;
+  }
+  
+  .likeIcon:hover {
+    color: #0056b3;
+  }
+  
+  .likeCount {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .postAuthor {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .noPostsText {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+  }
+  

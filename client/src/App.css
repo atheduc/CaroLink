@@ -77,6 +77,12 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
+  box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1); /* Larger shadow for emphasis */
+
+
+}
+.sidebar-margin{
+  margin-top: 80px;
 }
 
 .header .logo {
@@ -185,8 +191,8 @@ body {
 .sidebar a:hover {
   background-color: #13714c; /* Highlight green on hover */
   color: white;
-  border-top-right-radius: 100px;
-  border-top-right-radius: 100px;
+  border-top-right-radius: 1000px;
+  border-bottom-right-radius: 100px;
 }
 
 /* Main Content Styling */
@@ -195,6 +201,7 @@ body {
   padding: 20px;
   background-color: #e9ebed; /* Light gray background for content */
   overflow-y: auto; /* Allow scrolling for large content */
+  border-top-left-radius: 50px;
 }
 
 /* Post Styling */
@@ -478,3 +485,176 @@ label {
 @tailwind components;
 @tailwind utilities;
 
+/* Styling for the Create Post Page */
+.createPostPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.formContainerWrapper {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #13714c;
+  margin-bottom: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #2d3748;
+}
+
+.inputField {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.inputField:focus {
+  border-color: #13714c;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+textarea.inputField {
+  height: 150px;
+  resize: none;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.submitButton {
+  background-color: #13714c;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #3ab67d;
+}
+
+.submitButton:active {
+  background-color: #2c6b3c;
+}
+
+.profilePageContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.basicInfo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.basicInfo h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.changePasswordBtn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.changePasswordBtn:hover {
+  background-color: #0056b3;
+}
+
+.yourPostsSection h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.post {
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.author {
+  font-size: 14px;
+  color: #555;
+}
+
+.body {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.likeContainer {
+  display: flex;
+  align-items: center;
+}
+
+.likeIcon {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+}
