@@ -8,12 +8,14 @@ function Sidebar() {
 
   return (
     <div className="sidebar">
-      <Link to="/">Home</Link>
-      {authState.status && <Link to="/createpost">Create A Post</Link>}
+      <div class = "margin">
+      <Link to="/legitHome/home">🏡  Home</Link></div>
+      <div class = "margin">{authState.status && <Link to="/createpost">📢 Create A Post</Link>}
+      </div>
       {!authState.status && (
         <>
-          <Link to="/login">Login</Link>
-          <Link to="/registration">Registration</Link>
+          <div class = "margin"><Link to="/login">🔒 Login</Link></div>
+          <div class = "margin"><Link to="/registration">📝 Registration</Link></div>
         </>
       )}
     </div>

@@ -155,7 +155,7 @@ function App() {
             {/* Main content area */}
             <div className="content">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/legitHome/home" element={<Home />} />
                 <Route path="/createpost" element={<CreatePost />} />
                 <Route path="/post/:id" element={<Post />} />
                 <Route path="/registration" element={<Registration />} />

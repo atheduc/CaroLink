@@ -94,7 +94,7 @@ function CreatePost() {
       axios.post("http://localhost:3001/posts", data,  {
         headers: { accessToken: localStorage.getItem("accessToken") },
       }).then((response) => {
-        navigate("/");
+        navigate("/legitHome/home");
       });
     };
 
