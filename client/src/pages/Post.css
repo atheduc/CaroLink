@@ -1,0 +1,147 @@
+.postPage {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .leftSide, .rightSide {
+    flex: 1;
+    margin: 10px;
+  }
+
+/* Floating error banner */
+.errorBanner {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f44336; /* Red color for error */
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: auto;
+  max-width: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.errorIcon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.errorMessage {
+  flex-grow: 1;
+  font-size: 16px;
+  color: white;
+}
+
+.closeErrorBanner {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.closeErrorBanner:hover {
+  opacity: 0.7;
+}
+
+  .post {
+    background-color: rgb(224, 255, 224);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .body {
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+  
+  .footer {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .addCommentContainer {
+    margin: 10px 0;
+  }
+  
+  .commentInput {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .addCommentButton {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .addCommentButton:hover {
+    background-color: #0056b3;
+  }
+  
+  .listOfComments {
+    margin-top: 20px;
+  }
+  
+  .commentCard {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .commentCard.even {
+    background-color: #f8f9fa;
+  }
+  
+  .commentCard.odd {
+    background-color: #fff;
+  }
+  
+  .commentBody {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .commentFooter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .deleteCommentButton, .deletePostButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .deleteCommentButton:hover, .deletePostButton:hover {
+    background-color: #c82333;
+  }
+  
