@@ -1,23 +1,44 @@
 {
   "development": {
-    "username": "root",
-    "password": "cisco",
-    "database": "paulo",
-    "host": "localhost",
-    "dialect": "mysql"
+    "username": "carolinkdb_user",
+    "password": "gIcNKse8h9kJ2OEbSZZOptLp3YjN52nh",
+    "database": "carolinkdb",
+    "host": "dpg-cthc2kogph6c73dbajrg-a.oregon-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "test": {
-    "username": "root",
-    "password": "cisco",
-    "database": "paulo",
-    "host": "localhost",
-    "dialect": "mysql"
+    "username": "carolinkdb_user",
+    "password": "gIcNKse8h9kJ2OEbSZZOptLp3YjN52nh",
+    "database": "carolinkdb",
+    "host": "dpg-cthc2kogph6c73dbajrg-a.oregon-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "production": {
-    "username": "root",
-    "password": "cisco",
-    "database": "paulo",
-    "host": "localhost",
-    "dialect": "mysql"
+    "username": "carolinkdb_user",
+    "password": "gIcNKse8h9kJ2OEbSZZOptLp3YjN52nh",
+    "database": "carolinkdb",
+    "host": "dpg-cthc2kogph6c73dbajrg-a.oregon-postgres.render.com",
+    "port": 5432,
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
