@@ -77,6 +77,11 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
+
+
+}
+.sidebar-margin{
+  margin-top: 80px;
 }
 
 .header .logo {
@@ -185,8 +190,8 @@ body {
 .sidebar a:hover {
   background-color: #13714c; /* Highlight green on hover */
   color: white;
-  border-top-right-radius: 100px;
-  border-top-right-radius: 100px;
+  border-top-right-radius: 1000px;
+  border-bottom-right-radius: 100px;
 }
 
 /* Main Content Styling */
@@ -195,6 +200,7 @@ body {
   padding: 20px;
   background-color: #e9ebed; /* Light gray background for content */
   overflow-y: auto; /* Allow scrolling for large content */
+  border-top-left-radius: 50px;
 }
 
 /* Post Styling */
@@ -477,4 +483,290 @@ label {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Styling for the Create Post Page */
+.createPostPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.formContainerWrapper {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #13714c;
+  margin-bottom: 20px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #2d3748;
+}
+
+.inputField {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.inputField:focus {
+  border-color: #13714c;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+textarea.inputField {
+  height: 150px;
+  resize: none;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+.submitButton {
+  background-color: #13714c;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #3ab67d;
+}
+
+.submitButton:active {
+  background-color: #2c6b3c;
+}
+
+.profilePageContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.basicInfo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.basicInfo h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.changePasswordBtn {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.changePasswordBtn:hover {
+  background-color: #0056b3;
+}
+
+.yourPostsSection h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.post {
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.postHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.author {
+  font-size: 14px;
+  color: #555;
+}
+
+.body {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.likeContainer {
+  display: flex;
+  align-items: center;
+}
+
+.likeIcon {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+}
+ /* Floating Shapes Styling *//* Floating Shapes Styling */
+ .floating-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Put behind the content */
+}
+
+.shape {
+  position: absolute;
+  animation: float 12s ease-in-out infinite;
+}
+
+.shape-circle {
+  width: 2000px;
+  height: 2000px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.shape-rectangle {
+  width: 500px;
+  height: 250px;
+  background-color: #13714c;
+  border-radius: 15px;
+}
+
+.shape-triangle {
+  width: 900;
+  height: 80;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 120px solid lightgreen;
+}
+
+/* New Shapes */
+.shape-square {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(0, 63, 3);
+}
+
+.shape-diamond {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 50px solid #e9ebed;
+  border-bottom: 50px solid transparent;
+  transform: rotate(45deg);
+}
+
+.shape-hexagon {
+  width: 100px;
+  height: 58px;
+  background-color: #13714c;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.shape-star {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  border: 2px solid #e9ebed;
+}
+
+.shape-pentagon {
+  width: 100px;
+  height: 100px;
+  background-color: #3ab67d;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+}
+
+.shape-heart {
+  width: 100px;
+  height: 90px;
+  background-color: green;
+  clip-path: polygon(50% 0%, 100% 40%, 80% 100%, 20% 100%, 0% 40%);
+}
+
+.shape-arrow {
+  width: 500px;
+  height: 200px;
+  background-color: #13714c;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+
+/* Animation to make the shapes float */
+@keyframes float {
+  0% {
+      transform: translate(0, 0);
+  }
+  50% {
+      transform: translate(50px, 50px);
+  }
+  100% {
+      transform: translate(0, 0);
+  }
+}
+
+/* Randomize the positions of the shapes */
+.shape:nth-child(1) { top: 10%; left: 5%; animation-duration: 12s; }
+.shape:nth-child(2) { top: 25%; left: 5%; animation-duration: 14s; }
+.shape:nth-child(3) { top: 20%; left: 80%; animation-duration: 16s; }
+.shape:nth-child(4) { top: 60%; left: 50%; animation-duration: 18s; }
+.shape:nth-child(5) { top: 75%; left: 10%; animation-duration: 20s; }
+.shape:nth-child(6) { top: 70%; left: 80%; animation-duration: 22s; }
+
 

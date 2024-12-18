@@ -1,64 +1,9 @@
-// import React, { useEffect, useState } from "react";
-// import { useParams, useNavigate } from "react-router-dom"; // Use `useNavigate` instead of `useHistory`
-// import axios from "axios";
-
-// function Profile() {
-//   let { id } = useParams();
-//   let navigate = useNavigate(); // Initialize `useNavigate`
-//   const [username, setUsername] = useState("");
-//   const [listOfPosts, setListOfPosts] = useState([]);
-
-//   useEffect(() => {
-//     axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
-//       setUsername(response.data.username);
-//     });
-
-//     axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
-//       setListOfPosts(response.data);
-//     });
-//   }, [id]); // Add `id` as a dependency to avoid stale data
-
-//   return (
-//     <div className="profilePageContainer">
-//       <div className="basicInfo">
-//         <h1>Username: {username}</h1>
-//       </div>
-//       <div className="listOfPosts">
-//         {listOfPosts.map((value, key) => {
-//           return (
-//             <div key={key} className="post">
-//               <div className="title">{value.title}</div>
-//               <div
-//                 className="body"
-//                 onClick={() => {
-//                   navigate(`/post/${value.id}`); // Use `navigate` here
-//                 }}
-//               >
-//                 {value.postText}
-//               </div>
-//               <div className="footer">
-//                 <div className="username">{value.username}</div>
-//                 <div className="buttons">
-//                   <label>{value.Likes.length}</label>
-//                 </div>
-//               </div>
-//             </div>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Profile;
-
-
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp"; // Import the like icon
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { AuthContext } from "../helpers/AuthContext";
-
+import "./Profile.css"; // Import CSS for styling
 
 function Profile() {
   let { id } = useParams();
@@ -68,74 +13,92 @@ function Profile() {
   const { authState } = useContext(AuthContext);
 
   useEffect(() => {
-    // Fetch basic user info (username)
-    axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response) => {
-      setUsername(response.data.username);
-    }).catch((err) => {
-      console.error("Error fetching user info:", err);
-    });
+    // Fetch basic user info
+    axios
+      .get(`http://localhost:3001/auth/basicinfo/${id}`)
+      .then((response) => {
+        setUsername(response.data.username);
+      })
+      .catch((err) => {
+        console.error("Error fetching user info:", err);
+      });
 
-    // Fetch the list of posts created by the user
-    axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
-      setListOfPosts(response.data);
-    }).catch((err) => {
-      console.error("Error fetching posts:", err);
-    });
+    // Fetch the list of posts
+    axios
+      .get(`http://localhost:3001/posts/byuserId/${id}`)
+      .then((response) => {
+        setListOfPosts(response.data);
+      })
+      .catch((err) => {
+        console.error("Error fetching posts:", err);
+      });
   }, [id]);
 
   const likeAPost = (postId) => {
-    // Implement your like post functionality here
-    axios.post(`http://localhost:3001/likes/${postId}`).then((response) => {
-      console.log("Post liked", response);
-      // Optionally, you can update the list of posts to reflect the new like count
-    }).catch((err) => {
-      console.error("Error liking the post:", err);
-    });
+    axios
+      .post(`http://localhost:3001/likes/${postId}`)
+      .then(() => {
+        setListOfPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.id === postId
+              ? { ...post, Likes: [...(post.Likes || []), {}] }
+              : post
+          )
+        );
+      })
+      .catch((err) => {
+        console.error("Error liking the post:", err);
+      });
   };
 
   return (
-    <div className="profilePageContainer">
-      <div className="basicInfo">
-        <h1>Username: {username}</h1>
-        {authState.username === username && (
-          <button
-            onClick={() => {
-              navigate("/changepassword");
-            }}
-          >
-            {" "}
-            Change My Password
-          </button>
-        )}
+    <div className="profileContainer">
+      {/* User Basic Information */}
+      <div className="profileHeader">
+        <div className="profileDetails">
+          <h1 className="profileUsername">{username}'s Profile</h1>
+          {authState.username === username && (
+            <button
+              onClick={() => navigate("/changepassword")}
+              className="changePasswordBtn"
+            >
+              Change My Password
+            </button>
+          )}
+        </div>
       </div>
-      <div className="listOfPosts">
+
+      {/* User Posts */}
+      <div className="postsContainer">
+        <h2 className="sectionTitle">Your Posts</h2>
         {listOfPosts.length > 0 ? (
-          listOfPosts.map((post) => {
-            return (
-              <div className="post" key={post.id}>
-                <div className="title">{post.title}</div>
+          <div className="postsGrid">
+            {listOfPosts.map((post) => (
+              <div className="postCard" key={post.id}>
                 <div
-                  className="body"
-                  onClick={() => {
-                    navigate(`/post/${post.id}`); // Navigate to the post details page
-                  }}
+                  className="postBody"
+                  onClick={() => navigate(`/post/${post.id}`)}
                 >
-                  {post.postText}
+                  <h3 className="postTitle">{post.title}</h3>
+                  <p className="postText">{post.postText}</p>
                 </div>
-                <div className="footer">
-                  <span>{post.username}</span>
-                  <ThumbUpIcon
-                    onClick={() => {
-                      likeAPost(post.id); // Call likeAPost when the like button is clicked
-                    }}
-                  />
-                  <label>{post.Likes?.length ?? 0} Likes</label>
+                <div className="postFooter">
+                  <div className="likeSection">
+                    <ThumbUpIcon
+                      onClick={() => likeAPost(post.id)}
+                      className="likeIcon"
+                    />
+                    <span className="likeCount">
+                      {post.Likes?.length ?? 0} Likes
+                    </span>
+                  </div>
+                  <span className="postAuthor">By {post.username}</span>
                 </div>
               </div>
-            );
-          })
+            ))}
+          </div>
         ) : (
-          <p>No posts found for this user.</p>
+          <p className="noPostsText">No posts found for this user.</p>
         )}
       </div>
     </div>
@@ -143,4 +106,3 @@ function Profile() {
 }
 
 export default Profile;
-

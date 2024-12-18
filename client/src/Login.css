@@ -1,19 +1,22 @@
 /* General Layout */
 .loginContainer, .registrationContainer {
-    align-items: center;
-    min-height: 100vh;/* Light background color */
+    min-height: 100vh;
+    display: flex;
+    border-radius: 80px;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    align-content: flex-start;
+    justify-content: center;
     margin-top: 100px;
-    margin-left: 400px;
-    border-radius: 30px;
 }
 
 .loginForm, .registrationForm {
     background-color: rgb(249, 255, 252);
     padding: 40px 50px; /* Adjusted padding for balanced form */
-    border-radius: 12px; /* Slightly rounder corners */
+    border-radius: 52px; /* Slightly rounder corners */
     box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.1); /* Larger shadow for emphasis */
-    width: 100%;
-    max-width: 600px; /* Adjusted max-width for better form proportions */
+    width: 150%;
+    max-width: 650px; /* Adjusted max-width for better form proportions */
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -66,7 +69,7 @@
 .loginForm button, .registrationForm button {
     width: 100%;
     padding: 14px; /* Adjusted padding for better balance */
-    background-color: #28a745;
+    background-color: #13714c;
     color: white;
     border: none;
     border-radius: 8px;
