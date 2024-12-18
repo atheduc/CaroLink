@@ -62,8 +62,9 @@ require('dotenv').config();  // Load environment variables
 
 const express = require('express');
 const cors = require('cors');
-const app = express();
 const helmet = require('helmet');
+const { Sequelize } = require('sequelize');
+const app = express();
 
 // CORS Configuration
 const corsOptions = {
@@ -90,12 +91,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
+// Middleware to parse incoming JSON requests
+app.use(express.json());  // Express built-in middleware for parsing JSON
 
-// Sequelize and database connection
-const { Sequelize } = require('sequelize');
-
-// Create the Sequelize instance and use environment variables for database credentials
+// Sequelize and database connection setup
 const sequelize = new Sequelize({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
@@ -106,30 +105,35 @@ const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false
+      rejectUnauthorized: false,  // Necessary for some hosted databases like Render
     }
   }
 });
 
-// Database connection and server start
+// Database connection and server start function
 const startServer = async () => {
   try {
-    await sequelize.authenticate();  // Authenticate first
+    // Authenticate the database connection
+    await sequelize.authenticate();  
     console.log('Database connection has been established successfully.');
-    await sequelize.sync();  // Sync after authenticating
+
+    // Sync database models with the database
+    await sequelize.sync();  // Sync models to the database (you can remove this if you don't want auto-sync)
+    
     const port = process.env.PORT || 3001;
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
     });
   } catch (error) {
     console.error('Unable to connect to the database:', error);
-    process.exit(1);  // Exit process with failure
+    process.exit(1);  // Exit process with failure if DB connection fails
   }
 };
 
+// Start the server
 startServer();
 
-// Routers
+// Example route definitions (replace with your actual routes and models)
 const postRouter = require("./routes/Posts");
 app.use("/posts", postRouter);
 
