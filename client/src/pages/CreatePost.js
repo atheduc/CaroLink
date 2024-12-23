@@ -89,12 +89,17 @@ function CreatePost() {
   });
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:3001/posts", data, {
-      headers: { accessToken: localStorage.getItem("accessToken") },
-    }).then((response) => {
-      navigate("/");
+    axios.post(
+      `${process.env.REACT_APP_API_URL}/posts`,  // Use the environment variable here
+      data,
+      { headers: { accessToken: localStorage.getItem("accessToken") } }
+    ).then((response) => {
+      navigate("/"); // Navigate after successful post creation
+    }).catch((error) => {
+      console.error("Error creating post:", error); // Optional: handle error
     });
   };
+  
 
   return (
     <div className="createPostPage">
