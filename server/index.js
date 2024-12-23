@@ -56,7 +56,6 @@
 // });
 
 
-
 require('dotenv').config();  // Load environment variables
 
 const express = require('express');
@@ -65,12 +64,14 @@ const helmet = require('helmet');
 const { Sequelize } = require('sequelize');
 const app = express();
 
-// CORS Configuration
+// CORS Configuration - Update for correct origins in production
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://carolink-webdev.vercel.app' : 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://carolink-webdev.vercel.app'   // Frontend URL for production
+    : 'http://localhost:3000',  // Local development URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
-  credentials: true,
+  credentials: true,  // Allow cookies to be sent with requests
 };
 
 // Use Helmet for HTTP header security
@@ -104,9 +105,9 @@ const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false,  // Necessary for some hosted databases like Render
-    }
-  }
+      rejectUnauthorized: false,  // Necessary for Render's hosted database
+    },
+  },
 });
 
 // Database connection and server start function
@@ -131,6 +132,8 @@ const startServer = async () => {
 
 // Start the server
 startServer();
+
+// Route handlers
 
 // Example route definitions (replace with your actual routes and models)
 const postRouter = require("./routes/Posts");
@@ -157,6 +160,6 @@ app.use((req, res, next) => {
 
 // Global error handler for uncaught errors
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error('Error stack:', err.stack);
   res.status(500).json({ message: 'Something went wrong!' });
 });
