@@ -57,7 +57,6 @@
 
 
 
-
 require('dotenv').config();  // Load environment variables
 
 const express = require('express');
@@ -68,7 +67,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://carolinkfinaldeployment.vercel.app' : 'http://localhost:3000', // Change production domain
+  origin: process.env.NODE_ENV === 'production' ? 'https://carolink-webdev.vercel.app' : 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
   credentials: true,
@@ -145,6 +144,11 @@ app.use("/auth", usersRouter);
 
 const likesRouter = require("./routes/Likes");
 app.use("/likes", likesRouter);
+
+// Redirect the root (/) to the frontend on Vercel
+app.get('/', (req, res) => {
+  res.redirect('https://carolink-webdev.vercel.app');  // Update with your Vercel URL
+});
 
 // Catch-all route handler for undefined routes
 app.use((req, res, next) => {
