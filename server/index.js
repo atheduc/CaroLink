@@ -67,7 +67,7 @@ const app = express();
 // CORS Configuration - Update for correct origins in production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? 'https://carolink-finalna.vercel.app'   // Frontend URL for production
+    ? 'https://carolink-webdev.vercel.app'   // Frontend URL for production
     : 'http://localhost:3000',  // Local development URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
