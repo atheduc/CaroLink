@@ -150,7 +150,7 @@ app.use("/likes", likesRouter);
 
 // Redirect the root (/) to the frontend on Vercel
 app.get('/', (req, res) => {
-  res.redirect('https://carolink-webdev.vercel.app');  // Update with your Vercel URL
+  res.redirect('https://caro-link.vercel.app');  // Update with your Vercel URL
 });
 
 // Catch-all route handler for undefined routes
