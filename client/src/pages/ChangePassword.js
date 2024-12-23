@@ -16,12 +16,12 @@ function ChangePassword() {
       return;
     }
 
-    axios
-      .put(
-        "http://localhost:3001/auth/changepassword",
-        { oldPassword, newPassword },
-        { headers: { accessToken: localStorage.getItem("accessToken") } }
-      )
+    axios.put(
+      `${process.env.REACT_APP_API_URL}/auth/changepassword`,
+      { oldPassword, newPassword },
+      { headers: { accessToken: localStorage.getItem("accessToken") } }
+    )
+    
       .then((response) => {
         if (response.data.error) {
           alert(response.data.error);

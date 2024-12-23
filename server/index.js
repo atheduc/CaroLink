@@ -68,7 +68,7 @@ const app = express();
 
 // CORS Configuration
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' ? 'https://your-frontend-domain.com' : 'http://localhost:3000', // Change production domain
+  origin: process.env.NODE_ENV === 'production' ? 'https://carolinkfinaldeployment.vercel.app' : 'http://localhost:3000', // Change production domain
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
   credentials: true,
