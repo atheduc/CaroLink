@@ -742,23 +742,29 @@ function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
 
+  // Get the authentication state from context
   const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Fetch posts on component mount and whenever searchTerm changes
+  // Fetch posts and check login status when component mounts
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
+    if (!authState.status) {
       navigate("/login");
     } else {
-      const token = localStorage.getItem("accessToken");
-      setIsLoggedIn(!!token);
-
+      setIsLoggedIn(true);
       // Fetch posts from the server using the environment variable
-      axios.get(`${process.env.REACT_APP_API_URL}/posts`).then((response) => {
-        setListOfPosts(response.data);
-      });
+      const fetchPosts = async () => {
+        try {
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/posts`);
+          setListOfPosts(response.data);
+        } catch (error) {
+          console.error("Error fetching posts:", error);
+        }
+      };
+
+      fetchPosts();
     }
-  }, [navigate]);
+  }, [authState.status, navigate]); // Dependency array ensures that this runs when authState changes
 
   // Handle liking a post
   const likeAPost = (postId) => {
@@ -779,10 +785,10 @@ function Home() {
           listOfPosts.map((post) => {
             if (post.id === postId) {
               if (response.data.liked) {
-                return { ...post, Likes: [...post.Likes, 0] };
+                return { ...post, Likes: [...post.Likes, 0] }; // Add a like
               } else {
                 const likesArray = post.Likes;
-                likesArray.pop();
+                likesArray.pop(); // Remove a like
                 return { ...post, Likes: likesArray };
               }
             } else {
@@ -800,8 +806,10 @@ function Home() {
 
   // Filter posts based on search term
   const filteredPosts = listOfPosts.filter((post) => {
-    return post.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-           post.postText.toLowerCase().includes(searchTerm.toLowerCase());
+    return (
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.postText.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   });
 
   return (
