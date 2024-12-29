@@ -182,12 +182,13 @@ const app = express();
 // CORS Configuration - Update for correct origins in production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production'
-    ? 'https://carolink-webdev.vercel.app'  // Main frontend URL for production
+    ? ['https://carolink-webdev.vercel.app', 'https://carolink-webdev-7d8xkbz7z-atheducs-projects.vercel.app']  // Allow both production and staging frontend URLs
     : 'http://localhost:3000',  // Local development URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
   credentials: true,  // Allow cookies to be sent with requests
 };
+
 
 // Use Helmet for HTTP header security
 app.use(helmet());
