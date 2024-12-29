@@ -1,71 +1,48 @@
-# # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# # dependencies
-# /node_modules
-# /.pnp
-# .pnp.js
-
-# # testing
-# /coverage
-
-# # production
-# /build
-
-# # misc
-# .DS_Store
-# .env.local
-# .env.development.local
-# .env.test.local
-# .env.production.local
-
-# npm-debug.log*
-# yarn-debug.log*
-# yarn-error.log*
-# node_modules
-
-
-
-# Node modules
+# Node.js Dependencies
 node_modules/
+client/node_modules/
 server/node_modules/
 
-# Yarn PnP (Plug'n'Play)
-/.pnp/
-/.pnp.js
+# Build Output
+client/build/
+server/build/
+build/
 
-# Testing Coverage output
-/coverage/
-
-# Production build files
-/build/
-
-# Local environment variables
+# Local Environment Variables
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+client/.env
+server/.env
 
-# System Files
-.DS_Store
-Thumbs.db
+# Testing Coverage Output
+coverage/
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
-# IDE & editor settings
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE & Editor Settings
 .idea/
 .vscode/
 *.sublime-workspace
 *.sublime-project
 
-# Optional: Ignore Docker-related files if you're not using Docker
+# Optional: Docker Files
 docker-compose.yml
 Dockerfile
 
-# Ignore temporary files
-*.log
+# Temporary Files
 *.bak
 *.swp
+*.tmp
