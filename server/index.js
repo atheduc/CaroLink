@@ -179,16 +179,28 @@ const helmet = require('helmet');
 const { Sequelize } = require('sequelize');
 const app = express();
 
+// List of all frontend domains that need to be allowed in CORS
+const allowedOrigins = [
+  'https://carolink-webdev.vercel.app',  // Main production frontend URL
+  'https://carolink-webdev-atheducs-projects.vercel.app',  // Another frontend URL
+  'https://carolink-webdev-git-master-atheducs-projects.vercel.app',  // GitHub branch or staging frontend
+  'https://carolink-webdev-52xcx6l5s-atheducs-projects.vercel.app',  // Another staging URL
+];
+
 // CORS Configuration - Update for correct origins in production
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production'
-    ? ['https://carolink-webdev.vercel.app', 'https://carolink-webdev-7d8xkbz7z-atheducs-projects.vercel.app']  // Allow both production and staging frontend URLs
-    : 'http://localhost:3000',  // Local development URL
+  origin: (origin, callback) => {
+    // Allow the request if the origin is in the allowed list, or if it's a local dev environment (no origin for local)
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'accessToken'],
   credentials: true,  // Allow cookies to be sent with requests
 };
-
 
 // Use Helmet for HTTP header security
 app.use(helmet());
